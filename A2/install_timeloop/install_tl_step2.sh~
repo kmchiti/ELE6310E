@@ -1,0 +1,18 @@
+echo "---------- STARTING STEP 2 -----------"
+mkdir timeloop-accelergy
+cd timeloop-accelergy
+git clone --recurse-submodules https://github.com/Accelergy-Project/accelergy-timeloop-infrastructure.git
+cd accelergy-timeloop-infrastructure
+
+# "make pull" does a git clone of some modules (not sure why this is
+# needed since the clone above was already recursive)
+make pull
+# Change to fix an issue on Colab (FLP):
+# Checkout a version of accelergy that is compatible with python 3.7
+cd src/accelergy
+git checkout -b python3_7 bb39de0
+cd ../..
+# --End change--
+
+cd src/cacti
+make

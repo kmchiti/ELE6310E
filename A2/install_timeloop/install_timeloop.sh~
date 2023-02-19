@@ -1,0 +1,33 @@
+# Installation script for Timeloop-Accelergy on Google Colab
+# Author: Francois Leduc-Primeau <francois.leduc-primeau@polymtl.ca>
+
+# *** Some steps are needed before running the script ***
+
+# TODO: mount google drive before sourcing this script, for instance using the
+# following notebook cell:
+### from google.colab import drive
+### drive.mount('/content/drive')
+
+# TODO: Adjust the first path below to the location of the scripts
+ln -s /content/drive/MyDrive/ELE6307/install_timeloop ~/install_tl
+
+# Then you can "source <SCRIPT LOCATION>/install_timeloop.sh" to run
+# this script, where <SCRIPT LOCATION> can be "." if your current
+# directory is the location of this script.
+
+# ------- You should not need to modify anything below this line ---------
+cd ~
+source ~/install_tl/install_tl_step0.sh
+
+source ~/install_tl/install_tl_step1.sh
+# should now be in a python virtual environment
+
+source ~/install_tl/install_tl_step2.sh
+
+source ~/install_tl/install_tl_step3.sh
+
+source ~/install_tl/install_tl_step4.sh
+
+source ~/install_tl/install_tl_step4b.sh
+
+source ~/install_tl/install_tl_step5.sh
