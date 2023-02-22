@@ -12,6 +12,11 @@
 ### drive.mount('/content/drive')
 
 # ---------------------------------------------------------------------
+# CONFIG
+#export TL_INSTALL_PREFIX = "/bin" # for Google Colab
+export TL_INSTALL_PREFIX="${HOME}/.local" # for other cases (adjust as necessary)
+
+# ---------------------------------------------------------------------
 
 # Get location of this script
 # https://stackoverflow.com/questions/59895/how-do-i-get-the-directory-where-a-bash-script-is-located-from-within-the-script
@@ -22,8 +27,11 @@ while [ -L "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symli
   [[ $SOURCE != /* ]] && SOURCE=$DIR/$SOURCE # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
 done
 DIR=$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )
+
 # Create a symlink in the home directory
-ln -s ${DIR} ~/install_tl
+test -e ~/install_tl && rm -i ~/install_tl
+echo "Creating symlink to ${DIR}"
+ln -sv ${DIR} ~/install_tl
 
 cd ~
 source ~/install_tl/install_tl_step0.sh
