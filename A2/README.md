@@ -1,6 +1,6 @@
-# ELE6307 Assignment 1 
+# ELE6310E Assignment 2
 
-First, read all of the assignment questions int the PDF and, then, follow the instructions in `main.ipynb` using Google Colab.
+First, read all of the assignment questions in the PDF and, then, follow the instructions in `main.ipynb` using Google Colab.
 
 1- Clone this github repo and upload the contents of first assignment to your drive. You will be prompted to allow access to your drive folder.
 
@@ -14,8 +14,10 @@ git clone https://github.com/kmchiti/ELE6310E.git
 source ELE6310E/A2/install_timeloop/install_timeloop.sh
 # (if necessary)
 export PATH=$PATH:~/.local/bin
-# make sure timeloop executable can be found
+# make sure timeloop executables can be found
 which -a timeloop-model
+# make sure accelergy executable can be found
+which -a accelergy
 ```
 
 # Question 1
