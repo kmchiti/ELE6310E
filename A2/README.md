@@ -23,7 +23,7 @@ which -a accelergy
 # Question 1
 You can run Accelergy to get the energy consumption using following command:
 ```
-timeloop-model common/Q1/arch/*.yaml  common/Q1/prob/*.yaml  common/Q1/map/Q1_ws.map.yaml
+timeloop-model Q1/arch/*.yaml  Q1/prob/*.yaml  Q1/map/Q1_ws.map.yaml
 ```
 You can extract the energy consumption, memory accesses, and all other stats from the `timeloop-model.stats.txt`. 
 
