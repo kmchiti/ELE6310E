@@ -7,15 +7,15 @@ architecture:
       technology: 40nm
 
     local:
-    - name: Memory
-      class: $c_class$
+    - name: Buffer
+      class: regfile
       attributes:
-        depth: $depth$
-        width: $width$
+        depth: 64
+        width: 8
         block-size: 1
-        word-bits: $width$
+        word-bits: 8
 
     - name: MACC
       class: intmac
       attributes:
-        datawidth: $width$
+        datawidth: 8
