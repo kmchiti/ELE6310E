@@ -223,7 +223,7 @@ def model_size(model):
     return 'model size: {:.3f}MB'.format(size_all_mb)
 
 
-def YAML_parser(path="timeloop-metric.ERT_summary.yaml"):
+def YAML_parser(path="timeloop-model.ERT_summary.yaml"):
     current_path = os.getcwd()
     path = os.path.join(current_path, path)
     with open(path, 'r') as stream:
