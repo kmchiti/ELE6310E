@@ -7,7 +7,7 @@ architecture:
       technology: 40nm
 
     local:
-    - name: Memory
+    - name: Buffer
       class: $c_class$
       attributes:
         depth: $depth$
