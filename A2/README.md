@@ -28,7 +28,11 @@ timeloop-model Q1/arch/*.yaml  Q1/prob/*.yaml  Q1/map/Q1_ws.map.yaml
 You can extract the energy consumption, memory accesses, and all other stats from the `timeloop-model.stats.txt`. 
 
 # Question 2
-Use `YAML_generator` in`utils.py` to generate the YAML files for the different configurations. Then you can use `YAML_parser` to parse the YAML files and get energy for read and write operations.
+Use `YAML_generator` in`utils.py` to generate the YAML files for the different configurations. After computing ERT with following command
+```
+timeloop-model Q2/arch.yaml Q2/prob.yaml Q2/map.yaml
+```
+Then you can use `YAML_parser` to parse the YAML files and get energy for read and write operations.
 
 # Question 3
 First, complete the `model_to_spars` and `generate_resnet_layers` in `solution.py`. Then follow instructions in `main.ipynb` notebook and prune the network. After fine-tuning, save the model and generate the YAML files for each layers of the pruned network. Then you can use `run_Accelergy` to estimate the energy consumption of pruned network.
