@@ -1,4 +1,3 @@
-echo "---------- STARTING STEP 4b -----------"
 # this step took a few minutes for me
 scons -j8 --accelergy --static
 # copy the executables in the path

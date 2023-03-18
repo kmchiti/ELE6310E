@@ -13,9 +13,17 @@
 
 # ---------------------------------------------------------------------
 # CONFIG
+
+## Timeloop installation path
 #export TL_INSTALL_PREFIX = "/bin" # for Google Colab
 export TL_INSTALL_PREFIX="${HOME}/.local" # for other cases (adjust as necessary)
 
+## Whether to copy previously saved timeloop executables rather than
+## recompiling
+#export TL_USE_SAVED_TIMELOOP=1
+## Location where executables can be saved
+export GOOGLE_DRIVE_PATH="/content/drive/MyDrive"
+export TL_EXEC_SAVE_PATH=${GOOGLE_DRIVE_PATH}/timeloop_colab_executables
 # ---------------------------------------------------------------------
 
 # Get location of this script
@@ -36,15 +44,30 @@ ln -sv ${DIR} ~/install_tl
 cd ~
 source ~/install_tl/install_tl_step0.sh
 
+echo "---------- STARTING STEP 1 -----------"
 source ~/install_tl/install_tl_step1.sh
 # we should now be in a python virtual environment
 
+echo "---------- STARTING STEP 2 -----------"
 source ~/install_tl/install_tl_step2.sh
 
+echo "---------- STARTING STEP 3 -----------"
 source ~/install_tl/install_tl_step3.sh
 
-source ~/install_tl/install_tl_step4.sh
+# Compile and install Timeloop
+echo "---------- STARTING STEP 4 -----------"
+if [ $TL_USE_SAVED_TIMELOOP -eq 1 ]
+then
+		echo "Installing previously saved Timeloop executables:";
+		mkdir -p ${TL_INSTALL_PREFIX}/bin;
+		cp -v ${TL_EXEC_SAVE_PATH}/timeloop-* ${TL_INSTALL_PREFIX}/bin/;
+		chmod u+x ${TL_INSTALL_PREFIX}/bin/*
+else
+		echo "Compiling Timeloop...";
+		source ~/install_tl/install_tl_step4.sh;
+		echo "---------- STARTING STEP 4b -----------";
+		source ~/install_tl/install_tl_step4b.sh
+fi
 
-source ~/install_tl/install_tl_step4b.sh
-
+echo "---------- STARTING STEP 5 -----------"
 source ~/install_tl/install_tl_step5.sh

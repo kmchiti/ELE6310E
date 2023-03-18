@@ -1,4 +1,3 @@
-echo "---------- STARTING STEP 2 -----------"
 mkdir -p timeloop-accelergy
 cd timeloop-accelergy
 git clone --recurse-submodules https://github.com/Accelergy-Project/accelergy-timeloop-infrastructure.git
